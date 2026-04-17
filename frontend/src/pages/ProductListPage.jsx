@@ -15,7 +15,17 @@ function ProductListPage() {
     setLoading(true);
     api
       .get("/products", { params: { search, category } })
-      .then((res) => setProducts(res.data))
+      .then((res) => {
+        const normalizedProducts = Array.isArray(res.data) ? res.data : [];
+        if (!Array.isArray(res.data)) {
+          toast.error("Products response was invalid. Please check backend API URL.");
+        }
+        setProducts(normalizedProducts);
+      })
+      .catch(() => {
+        setProducts([]);
+        toast.error("Failed to load products");
+      })
       .finally(() => setLoading(false));
   }, [search, category]);
 

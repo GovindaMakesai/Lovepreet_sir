@@ -1,10 +1,15 @@
 import axios from "axios";
 
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL;
+const isLocalhost =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+
+// In production, avoid accidentally calling frontend-domain /api routes on Vercel.
 const runtimeBaseUrl =
-  import.meta.env.VITE_API_BASE_URL ||
-  (typeof window !== "undefined" && window.location.hostname === "localhost"
-    ? "/api"
-    : "https://lovepreet-sir.onrender.com/api");
+  !isLocalhost && (!configuredBaseUrl || configuredBaseUrl.startsWith("/"))
+    ? "https://lovepreet-sir.onrender.com/api"
+    : configuredBaseUrl || "/api";
 
 const api = axios.create({
   baseURL: runtimeBaseUrl
