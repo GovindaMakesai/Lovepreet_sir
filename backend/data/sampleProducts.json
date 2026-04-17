@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Wireless Headphones",
+    "description": "Noise-cancelling over-ear headphones",
+    "category": "Electronics",
+    "image": "https://via.placeholder.com/300",
+    "price": 120,
+    "stock": 20,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 99 },
+      { "date": "2026-02-01", "price": 105 },
+      { "date": "2026-03-01", "price": 110 },
+      { "date": "2026-04-01", "price": 120 }
+    ]
+  },
+  {
+    "name": "Running Shoes",
+    "description": "Lightweight shoes for daily running",
+    "category": "Fashion",
+    "image": "https://via.placeholder.com/300",
+    "price": 75,
+    "stock": 35,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 60 },
+      { "date": "2026-02-01", "price": 65 },
+      { "date": "2026-03-01", "price": 70 },
+      { "date": "2026-04-01", "price": 75 }
+    ]
+  },
+  {
+    "name": "Smart Watch",
+    "description": "Fitness and sleep tracker watch",
+    "category": "Electronics",
+    "image": "https://via.placeholder.com/300",
+    "price": 180,
+    "stock": 15,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 150 },
+      { "date": "2026-02-01", "price": 160 },
+      { "date": "2026-03-01", "price": 170 },
+      { "date": "2026-04-01", "price": 180 }
+    ]
+  }
+]
