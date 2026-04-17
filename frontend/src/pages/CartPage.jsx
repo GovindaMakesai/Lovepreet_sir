@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { toast } from "react-toastify";
 import api from "../api";
 
 function CartPage({ user }) {
@@ -6,14 +7,17 @@ function CartPage({ user }) {
   const total = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.quantity, 0), [cart]);
 
   const checkout = async () => {
-    if (!user) return alert("Please login first");
+    if (!user) {
+      toast.info("Please login first");
+      return;
+    }
     try {
       await api.post("/orders", { items: cart.map(({ product, quantity }) => ({ product, quantity })) });
       localStorage.removeItem("cart");
       setCart([]);
-      alert("Order placed successfully");
+      toast.success("Order placed successfully");
     } catch (error) {
-      alert("Checkout failed");
+      toast.error("Checkout failed");
     }
   };
 
@@ -21,22 +25,34 @@ function CartPage({ user }) {
     <section className="pageSection">
       <h2>Cart</h2>
       {!cart.length ? (
-        <p className="mutedText">Your cart is empty. Add products to continue.</p>
+        <div className="card cartEmptyCard">
+          <h3>Your cart is empty</h3>
+          <p className="mutedText">Add products to continue shopping and checkout.</p>
+        </div>
       ) : (
-        <>
-          {cart.map((item) => (
-            <div key={item.product} className="card cartRow">
-              <p>{item.name}</p>
-              <p>
-                {item.quantity} x ${item.price}
-              </p>
-            </div>
-          ))}
-          <h3>Total: ${total.toFixed(2)}</h3>
-          <button className="btn btnPrimary" onClick={checkout}>
-            Checkout
-          </button>
-        </>
+        <div className="cartLayout">
+          <div className="cartItemsWrap">
+            {cart.map((item) => (
+              <div key={item.product} className="card cartItemCard">
+                <div>
+                  <p className="cartItemName">{item.name}</p>
+                  <p className="mutedText">
+                    Unit price: ${item.price} | Qty: {item.quantity}
+                  </p>
+                </div>
+                <p className="price">${(item.quantity * item.price).toFixed(2)}</p>
+              </div>
+            ))}
+          </div>
+          <aside className="card cartSummaryCard">
+            <p className="mutedText">Order Summary</p>
+            <h3>Total: ${total.toFixed(2)}</h3>
+            <p className="mutedText">Taxes and shipping are included in this demo checkout.</p>
+            <button className="btn btnPrimary cartCheckoutBtn" onClick={checkout}>
+              Proceed to Checkout
+            </button>
+          </aside>
+        </div>
       )}
     </section>
   );

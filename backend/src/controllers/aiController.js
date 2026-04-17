@@ -6,10 +6,16 @@ const getRecommendations = async (req, res) => {
   if (productId) {
     const product = await Product.findById(productId);
     if (!product) return res.status(404).json({ message: "Product not found" });
-    const similar = await Product.find({
+    let similar = await Product.find({
       _id: { $ne: product._id },
       category: product.category
     }).limit(6);
+
+    // Fallback so UI still shows recommendations even if category has a single item.
+    if (!similar.length) {
+      similar = await Product.find({ _id: { $ne: product._id } }).sort({ createdAt: -1 }).limit(6);
+    }
+
     return res.json(similar);
   }
 

@@ -1,5 +1,7 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/HomePage";
 import ProductListPage from "./pages/ProductListPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -53,7 +55,7 @@ function App() {
 
       <main className="container">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage user={user} />} />
           <Route path="/products" element={<ProductListPage />} />
           <Route path="/products/:id" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage user={user} />} />
@@ -61,6 +63,7 @@ function App() {
           <Route path="/dashboard" element={<AdminDashboardPage user={user} />} />
         </Routes>
       </main>
+      <ToastContainer position="top-right" autoClose={2200} hideProgressBar={false} />
     </div>
   );
 }

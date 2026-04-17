@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const Product = require("./models/Product");
+const sampleProducts = require("../data/sampleProducts.json");
 
 dotenv.config();
-connectDB();
 
 const app = express();
 const allowedOrigins = (process.env.CLIENT_URLS || "")
@@ -15,6 +16,8 @@ const allowedOrigins = (process.env.CLIENT_URLS || "")
 app.use(
   cors({
     origin(origin, callback) {
+      // If no CLIENT_URLS configured, keep development open.
+      if (!allowedOrigins.length) return callback(null, true);
       // Allow Postman/curl and same-origin server-to-server calls
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) return callback(null, true);
@@ -39,4 +42,19 @@ app.use((error, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+const initializeSampleProducts = async () => {
+  const count = await Product.countDocuments();
+  if (count === 0) {
+    await Product.insertMany(sampleProducts);
+    console.log(`Seeded ${sampleProducts.length} dummy products for AI demo`);
+  }
+};
+
+const startServer = async () => {
+  await connectDB();
+  await initializeSampleProducts();
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+};
+
+startServer();

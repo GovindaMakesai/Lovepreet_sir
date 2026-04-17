@@ -36,7 +36,8 @@ Set env var:
 - Local frontend: `frontend/.env`
   - `VITE_API_BASE_URL=http://localhost:5000/api`
 - Production example: `frontend/.env.production.example`
-- Backend template: `backend/.env.example`
+- Backend local template: `backend/.env.example`
+- Backend production template: `backend/.env.production.example`
 
 ## 4) Push steps
 

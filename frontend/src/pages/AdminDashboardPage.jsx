@@ -5,7 +5,14 @@ function AdminDashboardPage({ user }) {
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [users, setUsers] = useState([]);
-  const [form, setForm] = useState({ name: "", category: "Electronics", price: 0, stock: 0 });
+  const [form, setForm] = useState({
+    name: "",
+    category: "Electronics",
+    price: 0,
+    stock: 0,
+    image: "",
+    description: ""
+  });
 
   const loadData = async () => {
     const [productsRes, ordersRes, usersRes] = await Promise.all([
@@ -24,8 +31,19 @@ function AdminDashboardPage({ user }) {
 
   const createProduct = async (e) => {
     e.preventDefault();
-    await api.post("/products", { ...form, price: Number(form.price), stock: Number(form.stock) });
-    setForm({ name: "", category: "Electronics", price: 0, stock: 0 });
+    await api.post("/products", {
+      ...form,
+      price: Number(form.price),
+      stock: Number(form.stock)
+    });
+    setForm({
+      name: "",
+      category: "Electronics",
+      price: 0,
+      stock: 0,
+      image: "",
+      description: ""
+    });
     loadData();
   };
 
@@ -54,6 +72,16 @@ function AdminDashboardPage({ user }) {
         </select>
         <input value={form.price} type="number" onChange={(e) => setForm({ ...form, price: e.target.value })} />
         <input value={form.stock} type="number" onChange={(e) => setForm({ ...form, stock: e.target.value })} />
+        <input
+          value={form.image}
+          placeholder="Image URL (optional)"
+          onChange={(e) => setForm({ ...form, image: e.target.value })}
+        />
+        <input
+          value={form.description}
+          placeholder="Description (optional)"
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
+        />
         <button className="btn btnPrimary" type="submit">
           Add Product
         </button>

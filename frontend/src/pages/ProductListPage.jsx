@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import api from "../api";
+
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1000&q=80";
 
 function ProductListPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
-  const [notice, setNotice] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -23,13 +25,15 @@ function ProductListPage() {
     if (existing) existing.quantity += 1;
     else cart.push({ product: product._id, name: product.name, price: product.price, quantity: 1 });
     localStorage.setItem("cart", JSON.stringify(cart));
-    setNotice(`${product.name} added to cart`);
-    setTimeout(() => setNotice(""), 1500);
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
     <section className="pageSection">
       <h2>Product Listing</h2>
+      <p className="mutedText">
+        AI note: recommendations appear on each product details page based on similar category.
+      </p>
       <div className="filters">
         <input
           placeholder="Search products..."
@@ -43,13 +47,20 @@ function ProductListPage() {
           <option value="Home">Home</option>
         </select>
       </div>
-      {notice && <p className="notice">{notice}</p>}
       {loading ? (
         <p className="mutedText">Loading products...</p>
       ) : products.length ? (
         <div className="grid">
           {products.map((product) => (
             <div key={product._id} className="card">
+              <img
+                className="productImage"
+                src={product.image || FALLBACK_IMAGE}
+                alt={product.name}
+                onError={(e) => {
+                  e.currentTarget.src = FALLBACK_IMAGE;
+                }}
+              />
               <h3>{product.name}</h3>
               <p className="mutedText">{product.category}</p>
               <p className="price">${product.price}</p>

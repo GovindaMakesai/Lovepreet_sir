@@ -3,7 +3,7 @@
     "name": "Wireless Headphones",
     "description": "Noise-cancelling over-ear headphones",
     "category": "Electronics",
-    "image": "https://via.placeholder.com/300",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80",
     "price": 120,
     "stock": 20,
     "priceHistory": [
@@ -17,7 +17,7 @@
     "name": "Running Shoes",
     "description": "Lightweight shoes for daily running",
     "category": "Fashion",
-    "image": "https://via.placeholder.com/300",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80",
     "price": 75,
     "stock": 35,
     "priceHistory": [
@@ -31,7 +31,7 @@
     "name": "Smart Watch",
     "description": "Fitness and sleep tracker watch",
     "category": "Electronics",
-    "image": "https://via.placeholder.com/300",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80",
     "price": 180,
     "stock": 15,
     "priceHistory": [
@@ -39,6 +39,202 @@
       { "date": "2026-02-01", "price": 160 },
       { "date": "2026-03-01", "price": 170 },
       { "date": "2026-04-01", "price": 180 }
+    ]
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "description": "Portable speaker with deep bass",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=1000&q=80",
+    "price": 95,
+    "stock": 28,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 80 },
+      { "date": "2026-02-01", "price": 84 },
+      { "date": "2026-03-01", "price": 89 },
+      { "date": "2026-04-01", "price": 95 }
+    ]
+  },
+  {
+    "name": "Gaming Mouse",
+    "description": "Ergonomic RGB mouse for gaming",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1000&q=80",
+    "price": 45,
+    "stock": 40,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 35 },
+      { "date": "2026-02-01", "price": 38 },
+      { "date": "2026-03-01", "price": 42 },
+      { "date": "2026-04-01", "price": 45 }
+    ]
+  },
+  {
+    "name": "Laptop Backpack",
+    "description": "Water-resistant backpack with laptop sleeve",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?auto=format&fit=crop&w=1000&q=80",
+    "price": 55,
+    "stock": 22,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 46 },
+      { "date": "2026-02-01", "price": 49 },
+      { "date": "2026-03-01", "price": 52 },
+      { "date": "2026-04-01", "price": 55 }
+    ]
+  },
+  {
+    "name": "Denim Jacket",
+    "description": "Classic fit blue denim jacket",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=1000&q=80",
+    "price": 68,
+    "stock": 18,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 58 },
+      { "date": "2026-02-01", "price": 60 },
+      { "date": "2026-03-01", "price": 64 },
+      { "date": "2026-04-01", "price": 68 }
+    ]
+  },
+  {
+    "name": "Coffee Maker",
+    "description": "Automatic drip coffee machine",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=1000&q=80",
+    "price": 110,
+    "stock": 14,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 92 },
+      { "date": "2026-02-01", "price": 97 },
+      { "date": "2026-03-01", "price": 103 },
+      { "date": "2026-04-01", "price": 110 }
+    ]
+  },
+  {
+    "name": "Air Fryer",
+    "description": "Digital air fryer for healthy cooking",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1585515656973-43f6e31f5f6f?auto=format&fit=crop&w=1000&q=80",
+    "price": 130,
+    "stock": 12,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 108 },
+      { "date": "2026-02-01", "price": 114 },
+      { "date": "2026-03-01", "price": 122 },
+      { "date": "2026-04-01", "price": 130 }
+    ]
+  },
+  {
+    "name": "Yoga Mat",
+    "description": "Non-slip workout yoga mat",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=1000&q=80",
+    "price": 35,
+    "stock": 50,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 28 },
+      { "date": "2026-02-01", "price": 30 },
+      { "date": "2026-03-01", "price": 33 },
+      { "date": "2026-04-01", "price": 35 }
+    ]
+  },
+  {
+    "name": "Office Chair",
+    "description": "Adjustable ergonomic office chair",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=1000&q=80",
+    "price": 210,
+    "stock": 9,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 180 },
+      { "date": "2026-02-01", "price": 190 },
+      { "date": "2026-03-01", "price": 200 },
+      { "date": "2026-04-01", "price": 210 }
+    ]
+  },
+  {
+    "name": "Mechanical Keyboard",
+    "description": "Backlit mechanical keyboard with blue switches",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=1000&q=80",
+    "price": 89,
+    "stock": 26,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 72 },
+      { "date": "2026-02-01", "price": 76 },
+      { "date": "2026-03-01", "price": 82 },
+      { "date": "2026-04-01", "price": 89 }
+    ]
+  },
+  {
+    "name": "Sunglasses",
+    "description": "UV-protected unisex sunglasses",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=80",
+    "price": 49,
+    "stock": 32,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 39 },
+      { "date": "2026-02-01", "price": 42 },
+      { "date": "2026-03-01", "price": 45 },
+      { "date": "2026-04-01", "price": 49 }
+    ]
+  },
+  {
+    "name": "Winter Hoodie",
+    "description": "Soft fleece hoodie for winter wear",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1000&q=80",
+    "price": 59,
+    "stock": 24,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 48 },
+      { "date": "2026-02-01", "price": 51 },
+      { "date": "2026-03-01", "price": 55 },
+      { "date": "2026-04-01", "price": 59 }
+    ]
+  },
+  {
+    "name": "Wireless Charger",
+    "description": "Fast charging pad for smartphones",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1587033411391-5d9e51cce126?auto=format&fit=crop&w=1000&q=80",
+    "price": 39,
+    "stock": 34,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 30 },
+      { "date": "2026-02-01", "price": 33 },
+      { "date": "2026-03-01", "price": 36 },
+      { "date": "2026-04-01", "price": 39 }
+    ]
+  },
+  {
+    "name": "Bedside Lamp",
+    "description": "Minimal bedside lamp with warm light",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
+    "price": 42,
+    "stock": 27,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 34 },
+      { "date": "2026-02-01", "price": 36 },
+      { "date": "2026-03-01", "price": 39 },
+      { "date": "2026-04-01", "price": 42 }
+    ]
+  },
+  {
+    "name": "Stainless Water Bottle",
+    "description": "Insulated bottle keeps drinks cold/hot",
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=80",
+    "price": 29,
+    "stock": 44,
+    "priceHistory": [
+      { "date": "2026-01-01", "price": 22 },
+      { "date": "2026-02-01", "price": 24 },
+      { "date": "2026-03-01", "price": 27 },
+      { "date": "2026-04-01", "price": 29 }
     ]
   }
 ]

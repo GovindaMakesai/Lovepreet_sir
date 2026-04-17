@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import api from "../api";
 
 function AuthPage({ setUser }) {
@@ -17,9 +18,12 @@ function AuthPage({ setUser }) {
       const { data } = await api.post(endpoint, payload);
       localStorage.setItem("token", data.token);
       setUser(data.user);
+      toast.success(isRegister ? "Account created successfully" : "Logged in successfully");
       navigate("/products");
     } catch (error) {
-      setErrorText(error.response?.data?.message || "Authentication failed");
+      const message = error.response?.data?.message || "Authentication failed";
+      setErrorText(message);
+      toast.error(message);
     }
   };
 
