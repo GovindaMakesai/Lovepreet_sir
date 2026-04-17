@@ -7,10 +7,25 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+const allowedOrigins = (process.env.CLIENT_URLS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow Postman/curl and same-origin server-to-server calls
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error("CORS blocked: origin not allowed"));
+    }
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("AI e-commerce API running"));
+app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
