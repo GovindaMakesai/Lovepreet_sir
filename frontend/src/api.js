@@ -1,7 +1,13 @@
 import axios from "axios";
 
+const runtimeBaseUrl =
+  import.meta.env.VITE_API_BASE_URL ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "/api"
+    : "https://lovepreet-sir.onrender.com/api");
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "/api"
+  baseURL: runtimeBaseUrl
 });
 
 api.interceptors.request.use((config) => {
